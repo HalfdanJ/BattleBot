@@ -1,0 +1,12 @@
+body{
+	text-align: center;
+}
+
+#result{
+	color: #333333;
+	font-size: 50px;
+}
+
+#status{
+	color: #aa0000;
+}
