@@ -1,0 +1,19 @@
+.logos{
+	height: 100%;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	margin-top: 50%;
+	margin-bottom: 20%;
+}
+
+
+#letter{
+	font-size: 400px;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-left: -200px;
+	text-align: center;
+}
