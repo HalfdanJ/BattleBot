@@ -3,6 +3,8 @@
 
 function [syllables, FS, S, F, T, P] = syllablesplit (signal, Fs, WINDOW, NOVERLAP, NFFT, MINDB)
 
+pkg load signal;
+
 [S,F,T] = specgram(signal, NFFT, Fs, WINDOW, NOVERLAP);
 mag = abs(S);
 

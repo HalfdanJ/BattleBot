@@ -4,16 +4,19 @@ file_name = argv(){1};
 
 [signal,Fs] = wavread(file_name);
 
-WINDOW = 100;
-NOVERLAP = 50;
-NFFT = 30;
+WINDOW = 64;
+NOVERLAP = 0;
+NFFT = 64;
+DBIN = 20;
 
-[syllables, FS, S, F, T, P] = syllablesplit(signal, Fs, WINDOW, NOVERLAP, NFFT, 20);
+%signal = fastsmooth(signal, 40, 3, 1);
 
-clean_name = strrep(file_name, ".wav", "")
+[syllables, FS, S, F, T, P] = syllablesplit(signal*20, Fs, WINDOW, NOVERLAP, NFFT, DBIN);
 
-for i=1:length(syllables)
-syllable_file_name = strcat(clean_name,mat2str(i),".wav");
+clean_name = strrep(file_name, ".wav", "");
+
+for i=1:length(syllables);
+syllable_file_name = strcat(clean_name,"_",mat2str(i),".wav");
 wavwrite(syllables(i).signal, Fs, syllable_file_name);
-endfor
+endfor;
 
